@@ -1,0 +1,640 @@
+{
+ "cpu": "AMD EPYC 7763 64-Core Processor",
+ "logical_cpus": 128,
+ "pages": 311,
+ "settings": "default (page rotation on, no dewarp, tables on)",
+ "latency_cpu_16threads": {
+  "s_per_page": {
+   "mean": 1.53,
+   "median": 1.493,
+   "p90": 1.961,
+   "n": 308
+  },
+  "pages_per_s": 0.654,
+  "stage_mean_s": {
+   "rotate": 0.06,
+   "ocr": 0.809,
+   "layout": 0.454,
+   "table_ocr": 0.07,
+   "tables": 0.015,
+   "merge": 0.0
+  }
+ },
+ "latency_gpu": {
+  "s_per_page": {
+   "mean": 1.083,
+   "median": 1.066,
+   "p90": 1.483,
+   "n": 308
+  },
+  "pages_per_s": 0.923,
+  "stage_mean_s": {
+   "rotate": 0.06,
+   "ocr": 0.595,
+   "layout": 0.225,
+   "table_ocr": 0.073,
+   "tables": 0.005,
+   "merge": 0.0
+  }
+ },
+ "gpu": "NVIDIA GeForce RTX 5090",
+ "throughput_cpu_16x1": {
+  "workers": 16,
+  "pages": 311,
+  "wall_s": 178.9,
+  "pages_per_s": 1.738,
+  "s_per_page_per_worker": 9.205
+ },
+ "vlm_typhoon-ocr2-2b": {
+  "model": "typhoon-ai/typhoon-ocr2-2b",
+  "pages": 311,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "latency_1_request": {
+   "s_per_page": {
+    "mean": 5.342,
+    "median": 5.178,
+    "p90": 8.189,
+    "n": 37
+   },
+   "pages_per_s": 0.187
+  },
+  "throughput": {
+   "concurrency": 256,
+   "api_servers": 6,
+   "wall_s": 400.2,
+   "pages_per_s": 0.777,
+   "output_tokens": 489764,
+   "output_tok_per_s": 1224,
+   "finish": {
+    "stop": 300,
+    "length": 11
+   }
+  }
+ },
+ "vlm_typhoon-ocr2-0.8b": {
+  "model": "typhoon-ai/typhoon-ocr2-0.8b",
+  "pages": 311,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "latency_1_request": {
+   "s_per_page": {
+    "mean": 4.992,
+    "median": 3.793,
+    "p90": 6.054,
+    "n": 37
+   },
+   "pages_per_s": 0.2
+  },
+  "throughput": {
+   "concurrency": 256,
+   "api_servers": 6,
+   "wall_s": 245.0,
+   "pages_per_s": 1.269,
+   "output_tokens": 642573,
+   "output_tok_per_s": 2622,
+   "finish": {
+    "stop": 296,
+    "length": 15
+   }
+  }
+ },
+ "vlm_openthai2.0-ocr-markdown": {
+  "model": "iapp/OpenThai2.0-OCR-Markdown",
+  "pages": 311,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "latency_1_request": {
+   "s_per_page": {
+    "mean": 4.007,
+    "median": 3.912,
+    "p90": 4.966,
+    "n": 37
+   },
+   "pages_per_s": 0.25
+  },
+  "throughput": {
+   "concurrency": 256,
+   "api_servers": 6,
+   "wall_s": 87.3,
+   "pages_per_s": 3.563,
+   "output_tokens": 496870,
+   "output_tok_per_s": 5692,
+   "finish": {
+    "stop": 311
+   }
+  }
+ },
+ "cpu_openthai2.0-ocr-text": {
+  "model": "iapp/OpenThai2.0-OCR-Text",
+  "backend": "openvino",
+  "output": "plain text (no layout, no tables)",
+  "latency_cpu_16threads": {
+   "s_per_page": {
+    "mean": 0.334,
+    "median": 0.292,
+    "p90": 0.554,
+    "n": 308
+   },
+   "pages_per_s": 2.997
+  },
+  "throughput_cpu_16x1": {
+   "workers": 16,
+   "pages": 311,
+   "wall_s": 30.6,
+   "pages_per_s": 10.156,
+   "s_per_page_per_worker": 1.575
+  }
+ },
+ "cpu_openthai2.0-ocr-text_onnxruntime": {
+  "model": "iapp/OpenThai2.0-OCR-Text",
+  "backend": "onnxruntime",
+  "output": "plain text (no layout, no tables)",
+  "latency_cpu_16threads": {
+   "s_per_page": {
+    "mean": 0.404,
+    "median": 0.358,
+    "p90": 0.661,
+    "n": 308
+   },
+   "pages_per_s": 2.474
+  },
+  "throughput_cpu_16x1": {
+   "workers": 16,
+   "pages": 311,
+   "wall_s": 31.3,
+   "pages_per_s": 9.938,
+   "s_per_page_per_worker": 1.61
+  }
+ },
+ "rec_aksonocr-lite": {
+  "lines": 469,
+  "score": {
+   "pv_hi_doc": {
+    "exact": 88.04,
+    "exact_nospace": 92.93,
+    "1-NED": 98.93,
+    "lines": 184,
+    "missing": 0
+   },
+   "pv_hi_photo": {
+    "exact": 88.07,
+    "exact_nospace": 89.12,
+    "1-NED": 97.81,
+    "lines": 285,
+    "missing": 0
+   },
+   "mean_exact": 88.06,
+   "mean_exact_nospace": 91.03
+  },
+  "latency_1thread_ms": {
+   "mean": 15.58,
+   "median": 13.05,
+   "p90": 32.81
+  },
+  "throughput_16x1_lines_per_s": 928.7
+ },
+ "rec_aksonocr-lite-noflip": {
+  "lines": 469,
+  "score": {
+   "pv_hi_doc": {
+    "exact": 88.04,
+    "exact_nospace": 92.93,
+    "1-NED": 98.93,
+    "lines": 184,
+    "missing": 0
+   },
+   "pv_hi_photo": {
+    "exact": 89.12,
+    "exact_nospace": 90.18,
+    "1-NED": 98.77,
+    "lines": 285,
+    "missing": 0
+   },
+   "mean_exact": 88.58,
+   "mean_exact_nospace": 91.56
+  },
+  "latency_1thread_ms": {
+   "mean": 8.11,
+   "median": 6.74,
+   "p90": 16.62
+  },
+  "throughput_16x1_lines_per_s": 1799.5
+ },
+ "rec_openthai-text": {
+  "lines": 469,
+  "score": {
+   "pv_hi_doc": {
+    "exact": 38.04,
+    "exact_nospace": 41.3,
+    "1-NED": 90.32,
+    "lines": 184,
+    "missing": 0
+   },
+   "pv_hi_photo": {
+    "exact": 38.25,
+    "exact_nospace": 39.3,
+    "1-NED": 85.48,
+    "lines": 285,
+    "missing": 0
+   },
+   "mean_exact": 38.14,
+   "mean_exact_nospace": 40.3
+  },
+  "latency_1thread_ms": {
+   "mean": 10.86,
+   "median": 9.84,
+   "p90": 19.15
+  },
+  "throughput_16x1_lines_per_s": 1187.3
+ },
+ "sets": {
+  "mdp": {
+   "pages": 160,
+   "latency_cpu_16threads": {
+    "s_per_page": {
+     "mean": 1.706,
+     "median": 1.673,
+     "p90": 2.209,
+     "n": 157
+    },
+    "pages_per_s": 0.586,
+    "stage_mean_s": {
+     "rotate": 0.102,
+     "ocr": 0.793,
+     "layout": 0.476,
+     "table_ocr": 0.116,
+     "tables": 0.022,
+     "merge": 0.0
+    }
+   },
+   "latency_gpu": {
+    "s_per_page": {
+     "mean": 1.145,
+     "median": 1.082,
+     "p90": 1.49,
+     "n": 157
+    },
+    "pages_per_s": 0.873,
+    "stage_mean_s": {
+     "rotate": 0.084,
+     "ocr": 0.528,
+     "layout": 0.229,
+     "table_ocr": 0.106,
+     "tables": 0.007,
+     "merge": 0.0
+    }
+   },
+   "throughput_cpu_16x1": {
+    "workers": 16,
+    "pages": 160,
+    "wall_s": 102.2,
+    "pages_per_s": 1.566,
+    "s_per_page_per_worker": 10.219
+   },
+   "vlm_typhoon-ocr2-2b": {
+    "model": "typhoon-ai/typhoon-ocr2-2b",
+    "pages": 160,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 5.285,
+      "median": 4.985,
+      "p90": 8.03,
+      "n": 37
+     },
+     "pages_per_s": 0.189
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 350.8,
+     "pages_per_s": 0.456,
+     "output_tokens": 323588,
+     "output_tok_per_s": 922,
+     "finish": {
+      "stop": 149,
+      "length": 11
+     }
+    }
+   },
+   "vlm_typhoon-ocr2-0.8b": {
+    "model": "typhoon-ai/typhoon-ocr2-0.8b",
+    "pages": 160,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 5.024,
+      "median": 3.698,
+      "p90": 6.275,
+      "n": 37
+     },
+     "pages_per_s": 0.199
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 202.1,
+     "pages_per_s": 0.792,
+     "output_tokens": 440276,
+     "output_tok_per_s": 2179,
+     "finish": {
+      "stop": 143,
+      "length": 17
+     }
+    }
+   },
+   "vlm_openthai2.0-ocr-markdown": {
+    "model": "iapp/OpenThai2.0-OCR-Markdown",
+    "pages": 160,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 3.914,
+      "median": 3.68,
+      "p90": 4.805,
+      "n": 37
+     },
+     "pages_per_s": 0.255
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 42.1,
+     "pages_per_s": 3.797,
+     "output_tokens": 198075,
+     "output_tok_per_s": 4701,
+     "finish": {
+      "stop": 160
+     }
+    }
+   }
+  },
+  "thai": {
+   "pages": 211,
+   "latency_cpu_16threads": {
+    "s_per_page": {
+     "mean": 1.312,
+     "median": 1.244,
+     "p90": 1.842,
+     "n": 208
+    },
+    "pages_per_s": 0.762,
+    "stage_mean_s": {
+     "rotate": 0.013,
+     "ocr": 0.609,
+     "layout": 0.428,
+     "table_ocr": 0.17,
+     "tables": 0.045,
+     "merge": 0.0
+    }
+   },
+   "latency_gpu": {
+    "s_per_page": {
+     "mean": 1.137,
+     "median": 1.086,
+     "p90": 1.662,
+     "n": 208
+    },
+    "pages_per_s": 0.879,
+    "stage_mean_s": {
+     "rotate": 0.012,
+     "ocr": 0.573,
+     "layout": 0.216,
+     "table_ocr": 0.272,
+     "tables": 0.015,
+     "merge": 0.0
+    }
+   },
+   "throughput_cpu_16x1": {
+    "workers": 16,
+    "pages": 211,
+    "wall_s": 104.1,
+    "pages_per_s": 2.028,
+    "s_per_page_per_worker": 7.891
+   },
+   "vlm_typhoon-ocr2-2b": {
+    "model": "typhoon-ai/typhoon-ocr2-2b",
+    "pages": 211,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 4.496,
+      "median": 4.247,
+      "p90": 6.552,
+      "n": 37
+     },
+     "pages_per_s": 0.222
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 118.4,
+     "pages_per_s": 1.782,
+     "output_tokens": 251118,
+     "output_tok_per_s": 2120,
+     "finish": {
+      "stop": 209,
+      "length": 2
+     }
+    }
+   },
+   "vlm_typhoon-ocr2-0.8b": {
+    "model": "typhoon-ai/typhoon-ocr2-0.8b",
+    "pages": 211,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 3.575,
+      "median": 3.257,
+      "p90": 5.168,
+      "n": 37
+     },
+     "pages_per_s": 0.28
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 68.3,
+     "pages_per_s": 3.09,
+     "output_tokens": 283807,
+     "output_tok_per_s": 4156,
+     "finish": {
+      "stop": 210,
+      "length": 1
+     }
+    }
+   },
+   "vlm_openthai2.0-ocr-markdown": {
+    "model": "iapp/OpenThai2.0-OCR-Markdown",
+    "pages": 211,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 3.395,
+      "median": 2.787,
+      "p90": 5.765,
+      "n": 37
+     },
+     "pages_per_s": 0.295
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 27.6,
+     "pages_per_s": 7.636,
+     "output_tokens": 296757,
+     "output_tok_per_s": 10740,
+     "finish": {
+      "stop": 211
+     }
+    }
+   }
+  },
+  "sea": {
+   "pages": 151,
+   "latency_cpu_16threads": {
+    "s_per_page": {
+     "mean": 1.415,
+     "median": 1.402,
+     "p90": 1.787,
+     "n": 148
+    },
+    "pages_per_s": 0.707,
+    "stage_mean_s": {
+     "rotate": 0.018,
+     "ocr": 0.869,
+     "layout": 0.457,
+     "table_ocr": 0.028,
+     "tables": 0.006,
+     "merge": 0.0
+    }
+   },
+   "latency_gpu": {
+    "s_per_page": {
+     "mean": 0.973,
+     "median": 0.951,
+     "p90": 1.311,
+     "n": 148
+    },
+    "pages_per_s": 1.027,
+    "stage_mean_s": {
+     "rotate": 0.018,
+     "ocr": 0.658,
+     "layout": 0.219,
+     "table_ocr": 0.037,
+     "tables": 0.002,
+     "merge": 0.0
+    }
+   },
+   "throughput_cpu_16x1": {
+    "workers": 16,
+    "pages": 151,
+    "wall_s": 89.8,
+    "pages_per_s": 1.682,
+    "s_per_page_per_worker": 9.511
+   },
+   "vlm_typhoon-ocr2-2b": {
+    "model": "typhoon-ai/typhoon-ocr2-2b",
+    "pages": 151,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 5.563,
+      "median": 4.106,
+      "p90": 5.244,
+      "n": 37
+     },
+     "pages_per_s": 0.18
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 103.7,
+     "pages_per_s": 1.457,
+     "output_tokens": 190896,
+     "output_tok_per_s": 1842,
+     "finish": {
+      "stop": 149,
+      "length": 2
+     }
+    }
+   },
+   "vlm_typhoon-ocr2-0.8b": {
+    "model": "typhoon-ai/typhoon-ocr2-0.8b",
+    "pages": 151,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 3.897,
+      "median": 3.793,
+      "p90": 4.988,
+      "n": 37
+     },
+     "pages_per_s": 0.257
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 59.5,
+     "pages_per_s": 2.536,
+     "output_tokens": 244492,
+     "output_tok_per_s": 4107,
+     "finish": {
+      "stop": 150,
+      "length": 1
+     }
+    }
+   },
+   "vlm_openthai2.0-ocr-markdown": {
+    "model": "iapp/OpenThai2.0-OCR-Markdown",
+    "pages": 151,
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "latency_1_request": {
+     "s_per_page": {
+      "mean": 5.122,
+      "median": 5.38,
+      "p90": 6.835,
+      "n": 37
+     },
+     "pages_per_s": 0.195
+    },
+    "throughput": {
+     "concurrency": 256,
+     "api_servers": 6,
+     "wall_s": 47.1,
+     "pages_per_s": 3.209,
+     "output_tokens": 301801,
+     "output_tok_per_s": 6413,
+     "finish": {
+      "stop": 151
+     }
+    }
+   }
+  }
+ },
+ "rec_openthai-text-v2.1": {
+  "lines": 469,
+  "score": {
+   "pv_hi_doc": {
+    "exact": 38.04,
+    "exact_nospace": 41.3,
+    "1-NED": 90.32,
+    "lines": 184,
+    "missing": 0
+   },
+   "pv_hi_photo": {
+    "exact": 38.25,
+    "exact_nospace": 39.3,
+    "1-NED": 85.48,
+    "lines": 285,
+    "missing": 0
+   },
+   "mean_exact": 38.14,
+   "mean_exact_nospace": 40.3
+  },
+  "latency_1thread_ms": {
+   "mean": 12.11,
+   "median": 11.1,
+   "p90": 21.41
+  },
+  "throughput_16x1_lines_per_s": 1162.6
+ }
+}

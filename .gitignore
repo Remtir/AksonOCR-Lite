@@ -1,0 +1,11 @@
+__pycache__/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+weights/
+runs/
+*.onnx
+bench/runner/
+bench/aksonocr_api_bench.py
+tools/export_rec.py

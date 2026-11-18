@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aksonocr-lite"
+version = "1.0.0"
+description = "Thai document OCR with a grapheme-cluster CTC recognizer: layout, reading order and tables to Markdown, on ONNX Runtime (CPU or GPU)"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.10"
+authors = [{ name = "Teetouch Jaknamon" }]
+keywords = ["ocr", "thai", "document-parsing", "layout-analysis", "table-recognition", "onnx"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Natural Language :: Thai",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Image Recognition",
+  "Topic :: Text Processing",
+]
+dependencies = [
+  "numpy>=1.23",
+  "opencv-python-headless>=4.8",
+  "onnxruntime>=1.17",
+  "pillow>=9.0",
+  "pyclipper>=1.3",
+  "shapely>=2.0",
+  "pypdfium2>=4.20",
+  "huggingface_hub>=0.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "build", "twine"]
+
+[project.scripts]
+aksonocr = "aksonocr_lite.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Remtir/AksonOCR-Lite"
+Models = "https://huggingface.co/Remtir/AksonOCR-Lite"
+
+[tool.hatch.build.targets.wheel]
+packages = ["aksonocr_lite"]
+
+[tool.hatch.build.targets.sdist]
+include = ["aksonocr_lite", "README.md", "LICENSE", "NOTICE", "MODEL_CARD.md", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["e2e: end-to-end tests that need model weights"]

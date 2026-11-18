@@ -1,0 +1,26 @@
+AksonOCR-Lite
+Copyright 2026 Teetouch Jaknamon
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It includes or downloads the following third-party components:
+
+1. PaddleX post-processing code (aksonocr_lite/_vendor/paddlex_layout.py, and the
+   DB text-detection post-processing in aksonocr_lite/det.py)
+   Copyright (c) 2024 PaddlePaddle Authors. Apache License 2.0.
+   https://github.com/PaddlePaddle/PaddleX
+
+2. Model weights redistributed unmodified in Remtir/AksonOCR-Lite (copies of the official ONNX exports):
+   - layout.onnx       PP-DocLayoutV3             (PaddlePaddle/PP-DocLayoutV3_onnx)             Apache License 2.0
+   - det.onnx          PP-OCRv6_medium_det        (PaddlePaddle/PP-OCRv6_medium_det_onnx)        Apache License 2.0
+   - doc_ori.onnx      PP-LCNet_x1_0_doc_ori      (PaddlePaddle/PP-LCNet_x1_0_doc_ori_onnx)      Apache License 2.0
+   - textline_ori.onnx PP-LCNet_x1_0_textline_ori (PaddlePaddle/PP-LCNet_x1_0_textline_ori_onnx) Apache License 2.0
+   Copyright (c) PaddlePaddle Authors.
+
+3. Model weights converted to ONNX and redistributed in Remtir/AksonOCR-Lite:
+   - tatr.onnx: microsoft/table-transformer-structure-recognition-v1.1-all
+     Copyright (c) Microsoft Corporation. MIT License.
+   - dewarp_mask.onnx, dewarp_grid.onnx: MonkeyOCRv2 document preprocessor
+     (https://github.com/Yuliang-Liu/MonkeyOCRv2). Apache License 2.0.
+   - rec.onnx: AksonOCR-Lite Thai recognizer, fine-tuned from PaddlePaddle
+     PP-OCRv6_tiny_rec (Apache License 2.0). Released under Apache License 2.0.

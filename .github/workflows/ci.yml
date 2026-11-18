@@ -1,0 +1,40 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e .[dev]
+      - run: pytest -m "not e2e" -q
+      - run: aksonocr --help
+  e2e:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]   # add macos-latest once the repo is public (macOS minutes are free there)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - if: runner.os == 'Linux'
+        run: sudo apt-get install -y fonts-tlwg-garuda-ttf
+      - if: runner.os == 'macOS'   # Pillow needs FriBiDi for complex-script layout (Thai marks) in the test pages
+        run: brew install fribidi
+      - run: pip install -e .[dev]
+      - run: pytest -m e2e -q -rs
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}   # needed while the weights repo is private
