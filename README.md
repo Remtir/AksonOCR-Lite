@@ -35,9 +35,11 @@ Markdown, plain text or JSON with layout blocks, reading order, text-line boxes 
 > on average across MDPBench, ThaiOCRBench and SEA-DocBench ([benchmarks](BENCHMARKS.md)).
 
 ```bash
-pip install aksonocr-lite
+pip install git+https://github.com/Remtir/AksonOCR-Lite
 aksonocr invoice.pdf > invoice.md
 ```
+
+<sub>The PyPI package (`pip install aksonocr-lite`) is coming soon; until then, install from GitHub as above.</sub>
 
 - **Thai first:** the text recognizer is trained for Thai (with English), predicting whole grapheme clusters
   so stacked vowels and tone marks come out in the right order.

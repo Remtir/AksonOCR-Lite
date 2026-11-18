@@ -15,7 +15,7 @@ tags:
 # AksonOCR-Lite models
 
 Weights used by the [AksonOCR-Lite](https://github.com/Remtir/AksonOCR-Lite) package
-(`pip install aksonocr-lite`). Everything here runs on ONNX Runtime; nothing needs PyTorch or Paddle.
+(`pip install git+https://github.com/Remtir/AksonOCR-Lite`). Everything here runs on ONNX Runtime; nothing needs PyTorch or Paddle.
 
 | File | What it is | Origin | License |
 |---|---|---|---|
